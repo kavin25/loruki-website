@@ -89,11 +89,20 @@
           </ul>
           <h3>Install</h3>
           <p>Mac (Homebrew)</p>
-          <pre><code>$ brew install loruki-cli</code></pre>
+          <pre class="flex">
+            <code>$ brew install loruki-cli</code>
+            <i class="fas fa-copy"></i>
+          </pre>
           <p>NPM</p>
-          <pre><code>$ npm install loruki-cli</code></pre>
+          <pre class="flex">
+            <code>$ npm install loruki-cli</code>
+            <i class="fas fa-copy"></i>
+          </pre>
           <p>Yarn</p>
-          <pre><code>$ yarn install loruki-cli</code></pre>
+          <pre class="flex">
+            <code>$ yarn install loruki-cli</code>
+            <i class="fas fa-copy"></i>
+          </pre>
         </div>
       </div>
     </section>
@@ -120,5 +129,31 @@
         </div>
       </div>
     </footer>
+
+    <div class="message message-success">Copied to Clipboard</div>
+
+    <script>
+      let copyBtns = document.querySelectorAll(".fa-copy");
+      for (let i = 0; i < copyBtns.length; i++) {
+        copyBtns[i].style.cursor = "pointer";
+        copyBtns[i].addEventListener("click", () => {
+          const command = copyBtns[i].parentElement.innerText.slice(2);
+          const el = document.createElement("textarea");
+          el.value = command;
+          el.setAttribute("readOnly", "");
+          // el.style.display = "none";
+          el.style.position = "absolute";
+          el.style.left = "-99999999999";
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand("copy");
+          document.body.removeChild(el);
+          document.querySelector(".message").classList.add("show");
+          setTimeout(() => {
+            document.querySelector(".message").classList.remove("show");
+          }, 4000);
+        });
+      }
+    </script>
   </body>
 </html>

@@ -132,6 +132,29 @@
   color: #fff;
 }
 
+.message {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  transform: translateX(150%);
+  padding: 12px;
+  transition: transform 1s ease-in;
+}
+
+.show {
+  transform: translateX(0);
+}
+
+.message-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.message-error {
+  background-color: var(--error-color);
+  color: white;
+}
+
 .flex {
   display: flex;
   justify-content: center;
